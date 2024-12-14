@@ -1,10 +1,14 @@
 from datetime import datetime
 
 def get_days_from_today(date):
-    iso_date = date
-    dfi = datetime.fromisoformat(iso_date)
-    current_day = datetime.today()
-    return current_day - dfi
+    try:
+        iso_date = date
+        dfi = datetime.fromisoformat(iso_date)
+        current_day = datetime.today()
+        return current_day - dfi
+    except ValueError:
+        print("Wrong")
+
 
 
 print(get_days_from_today("2025-02-11"))
@@ -13,12 +17,26 @@ print(get_days_from_today("2025-02-11"))
 import random
 
 def get_numbers_ticket(min, max, quantity):
-    num = range(min, max)
-    win = random.choices(num, k=quantity)
-    return win
+    lst = []
+    # numb = range(min, max)
+    # positive_numbers = [num for num in  if num > 0]
+    if min < 1:
+        return lst
+    if max > 1000:
+        return lst
+    if min > max:
+        return lst
+    if quantity > (max - min + 1):
+        return lst
+    else:
+        win = random.sample(range(min, max + 1), quantity)
+    return sorted(win)
 
 
-print(get_numbers_ticket(4, 10, 7))
+    
+
+
+print(get_numbers_ticket(1, 10, 3))
 
 
 import re
@@ -52,3 +70,49 @@ sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
 
 
+# lin = '2004-11.12'
+# new_lin = datetime.strptime(lin, "%Y-%m.%d")
+# print(new_lin)
+# ne = new_lin.replace(year=new_lin.year+1)
+# print(ne.strftime("%d.%m.%Y"))
+
+# list_d = ['12-10.2005', '11.02-1994', '08.10.2009' ]
+# # list_d = ['12-10.2005', '11-02.1994', '08-10.2009' ]
+# for date in list_d:
+#     new_lin = datetime.strptime(date, "%d-%m.%Y")
+#     print(new_lin)
+#     ne = new_lin.replace(year=new_lin.year+1)
+#     print(ne.strftime("%d.%m.%Y"))
+# new_li = datetime.(list_d, "%Y-%m.%d")
+# print(new_li)
+
+list_d = ['12.10-2005', '11.02-1994', '08-10-2009', '28-02-2009' ]
+# list_d = ['12-10.2005', '11-02.1994', '08-10.2009' ]
+for date in list_d:
+    f = date.replace('-', '.')
+    print(f)
+    new_lin = None
+    try:
+        new_lin = datetime.strptime(date, "%d-%m-%Y")
+        # ne = new_lin.replace(year=new_lin.year+1)
+        # print(ne.strftime("%d.%m.%Y"))
+    except:
+        pass
+    try:
+        new_lin = datetime.strptime(date, "%d.%m-%Y")
+    except:
+        pass
+    ne = new_lin.replace(year=new_lin.year+1)
+    print(ne.strftime("%d.%m.%Y"))
+    # try:
+    #     new_lin = datetime.strptime(date, "%d.%m-%Y")
+    #     ne = new_lin.replace(year=new_lin.year+1)
+    #     print(ne.strftime("%d.%m.%Y"))
+    # except:
+    #     pass
+    # print(new_lin)
+    # ne = new_lin.replace(year=new_lin.year+1)
+    # print(ne.strftime("%d.%m.%Y"))
+
+
+    
