@@ -18,8 +18,6 @@ import random
 
 def get_numbers_ticket(min, max, quantity):
     lst = []
-    # numb = range(min, max)
-    # positive_numbers = [num for num in  if num > 0]
     if min < 1:
         return lst
     if max > 1000:
@@ -69,50 +67,6 @@ raw_numbers = [
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
 
-
-# lin = '2004-11.12'
-# new_lin = datetime.strptime(lin, "%Y-%m.%d")
-# print(new_lin)
-# ne = new_lin.replace(year=new_lin.year+1)
-# print(ne.strftime("%d.%m.%Y"))
-
-# list_d = ['12-10.2005', '11.02-1994', '08.10.2009' ]
-# # list_d = ['12-10.2005', '11-02.1994', '08-10.2009' ]
-# for date in list_d:
-#     new_lin = datetime.strptime(date, "%d-%m.%Y")
-#     print(new_lin)
-#     ne = new_lin.replace(year=new_lin.year+1)
-#     print(ne.strftime("%d.%m.%Y"))
-# new_li = datetime.(list_d, "%Y-%m.%d")
-# print(new_li)
-
-list_d = ['12.10-2005', '11.02-1994', '08-10-2009', '28-02-2009' ]
-# list_d = ['12-10.2005', '11-02.1994', '08-10.2009' ]
-for date in list_d:
-    f = date.replace('-', '.')
-    print(f)
-    new_lin = None
-    try:
-        new_lin = datetime.strptime(date, "%d-%m-%Y")
-        # ne = new_lin.replace(year=new_lin.year+1)
-        # print(ne.strftime("%d.%m.%Y"))
-    except:
-        pass
-    try:
-        new_lin = datetime.strptime(date, "%d.%m-%Y")
-    except:
-        pass
-    ne = new_lin.replace(year=new_lin.year+1)
-    print(ne.strftime("%d.%m.%Y"))
-    # try:
-    #     new_lin = datetime.strptime(date, "%d.%m-%Y")
-    #     ne = new_lin.replace(year=new_lin.year+1)
-    #     print(ne.strftime("%d.%m.%Y"))
-    # except:
-    #     pass
-    # print(new_lin)
-    # ne = new_lin.replace(year=new_lin.year+1)
-    # print(ne.strftime("%d.%m.%Y"))
 
 
     
